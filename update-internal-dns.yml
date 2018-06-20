@@ -14,3 +14,10 @@
         ttl: 300
         value: "{{ ansible_default_ipv4.address }}"
 
+    - name: Ensure cron is present to update on reboot
+      cron:
+        name: "update-dns"
+        state: present
+        special_time: reboot
+        job: |
+          ansible-pull -U https://github.com/fullmetalgeo/ansible-playbooks --extra-vars "hostname={{ hostname }} zone={{ zone }}" update-internal-dns.yml
