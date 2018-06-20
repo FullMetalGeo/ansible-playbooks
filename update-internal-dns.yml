@@ -19,5 +19,6 @@
         name: "update-dns"
         state: present
         special_time: reboot
+        user: root
         job: |
           ansible-pull -U https://github.com/fullmetalgeo/ansible-playbooks --extra-vars "hostname={{ hostname }} zone={{ zone }}" update-internal-dns.yml
