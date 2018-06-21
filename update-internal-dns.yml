@@ -7,6 +7,7 @@
     - name: Update DNS
       route53:
         state: present
+        overwrite: true
         zone: "{{ zone }}"
         private_zone: true
         record: "{{ hostname }}.{{ zone }}"
