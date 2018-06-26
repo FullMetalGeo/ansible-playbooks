@@ -19,8 +19,8 @@
       cron:
         name: "update-dns"
         state: present
-        minute: "*/5"
+        special_time: reboot
         user: root
         job: |
-          /usr/bin/ansible-pulll -U https://github.com/fullmetalgeo/ansible-playbooks --extra-vars "hostname={{ hostname }} zone={{ zone }}" update-internal-dns.yml >> /var/log/ansible-pull.log
+          /usr/bin/ansible-pull -U https://github.com/fullmetalgeo/ansible-playbooks --extra-vars "hostname={{ hostname }} zone={{ zone }}" update-internal-dns.yml >> /var/log/ansible-pull.log
       become: yes
