@@ -12,7 +12,7 @@
         private_zone: true
         record: "{{ hostname }}.{{ zone }}"
         type: A
-        ttl: 300
+        ttl: 60
         value: "{{ ansible_default_ipv4.address }}"
 
     - name: Ensure cron is present to update on reboot
